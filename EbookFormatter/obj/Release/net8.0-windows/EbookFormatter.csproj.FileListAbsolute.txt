@@ -1,0 +1,16 @@
+C:\Users\nobum\source\repos\EbookFormatter\EbookFormatter\bin\Release\net8.0-windows\EbookFormatter.exe
+C:\Users\nobum\source\repos\EbookFormatter\EbookFormatter\bin\Release\net8.0-windows\EbookFormatter.deps.json
+C:\Users\nobum\source\repos\EbookFormatter\EbookFormatter\bin\Release\net8.0-windows\EbookFormatter.runtimeconfig.json
+C:\Users\nobum\source\repos\EbookFormatter\EbookFormatter\bin\Release\net8.0-windows\EbookFormatter.dll
+C:\Users\nobum\source\repos\EbookFormatter\EbookFormatter\bin\Release\net8.0-windows\EbookFormatter.pdb
+C:\Users\nobum\source\repos\EbookFormatter\EbookFormatter\obj\Release\net8.0-windows\EbookFormatter.Form1.resources
+C:\Users\nobum\source\repos\EbookFormatter\EbookFormatter\obj\Release\net8.0-windows\EbookFormatter.csproj.GenerateResource.cache
+C:\Users\nobum\source\repos\EbookFormatter\EbookFormatter\obj\Release\net8.0-windows\EbookFormatter.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nobum\source\repos\EbookFormatter\EbookFormatter\obj\Release\net8.0-windows\EbookFormatter.AssemblyInfoInputs.cache
+C:\Users\nobum\source\repos\EbookFormatter\EbookFormatter\obj\Release\net8.0-windows\EbookFormatter.AssemblyInfo.cs
+C:\Users\nobum\source\repos\EbookFormatter\EbookFormatter\obj\Release\net8.0-windows\EbookFormatter.csproj.CoreCompileInputs.cache
+C:\Users\nobum\source\repos\EbookFormatter\EbookFormatter\obj\Release\net8.0-windows\EbookFormatter.dll
+C:\Users\nobum\source\repos\EbookFormatter\EbookFormatter\obj\Release\net8.0-windows\refint\EbookFormatter.dll
+C:\Users\nobum\source\repos\EbookFormatter\EbookFormatter\obj\Release\net8.0-windows\EbookFormatter.pdb
+C:\Users\nobum\source\repos\EbookFormatter\EbookFormatter\obj\Release\net8.0-windows\EbookFormatter.genruntimeconfig.cache
+C:\Users\nobum\source\repos\EbookFormatter\EbookFormatter\obj\Release\net8.0-windows\ref\EbookFormatter.dll
