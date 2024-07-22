@@ -29,6 +29,7 @@ namespace EbookFormatter
             if (e.Data.GetData(DataFormats.FileDrop, false) == null)
             {
                 logger.AppendLine($"Warning: DnD does not contain any files");
+                textBoxLog.Text = logger.ToString();
                 return;
             }
             else
@@ -38,6 +39,7 @@ namespace EbookFormatter
                 string[] arrayDndFilenames = (string[])e.Data.GetData(DataFormats.FileDrop, false);
                 string[] arrayInputImageFilenames = CheckFilenameSanity(arrayDndFilenames);
 
+                textBoxLog.Text = logger.ToString();
                 ebookFormatter.arrayInputImageFilenames = arrayInputImageFilenames;
                 ebookFormatter.GetBoarders();
                 backgroundWorkerEbookFormatter.RunWorkerAsync();
