@@ -33,9 +33,7 @@ namespace EbookFormatter
                 string[] arrayDndFilenames = (string[])e.Data.GetData(DataFormats.FileDrop, false);
 
                 ebookFormatter = new EbookFormatEngine(arrayDndFilenames);
-                ebookFormatter.GetBoarders();
-
-                textBoxLog.Text = ebookFormatter.logger.ToString();
+                textBoxLog.Text = ebookFormatter.ToString();
 
                 backgroundWorkerEbookFormatter.RunWorkerAsync();
             }
@@ -54,7 +52,7 @@ namespace EbookFormatter
         private void OnBgWkrEbookFormatterRunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
             labelStatus.Text = $"Completed";
-            textBoxLog.Text = ebookFormatter.logger.ToString();
+            textBoxLog.Text = ebookFormatter.ToString();
         }
     }
 }

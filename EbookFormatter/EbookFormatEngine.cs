@@ -23,7 +23,7 @@ namespace EbookFormatter
         string[] arrayInputImageFilenames;
         int medianLeftBoarder;
         int medianRightBoarder;
-        public StringBuilder logger { set;  get; }
+        StringBuilder logger;
 
         enum Directions
         {
@@ -77,6 +77,12 @@ namespace EbookFormatter
                 worker.ReportProgress(masterPageIndex * 100 / masterPageMax);
             }
         }
+
+        public string ToString()
+        {
+            return logger.ToString();
+        }
+
         private string[] CheckFilenameSanity(string[] filenames)
         {
             List<string> validatedFilenames = new List<string>();
