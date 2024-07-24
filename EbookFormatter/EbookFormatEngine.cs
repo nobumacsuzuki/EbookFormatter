@@ -20,7 +20,7 @@ namespace EbookFormatter
         int LeftAndRight = 2;
         string OutputFoldername = "output";
 
-        public string[] arrayInputImageFilenames { set; get; }
+        string[] arrayInputImageFilenames;
         int medianLeftBoarder;
         int medianRightBoarder;
         public StringBuilder logger { set;  get; }
@@ -31,10 +31,12 @@ namespace EbookFormatter
             Right
         };
 
-        public EbookFormatEngine()
+        public EbookFormatEngine(string[] filenames)
         {
             logger = new StringBuilder();
             logger.AppendLine($"Ebook Formatter is initalized");
+            arrayInputImageFilenames = CheckFilenameSanity(filenames);
+            GetBoarders();
         }
 
         public void GetBoarders()
@@ -74,6 +76,25 @@ namespace EbookFormatter
                 // report progress
                 worker.ReportProgress(masterPageIndex * 100 / masterPageMax);
             }
+        }
+        private string[] CheckFilenameSanity(string[] filenames)
+        {
+            List<string> validatedFilenames = new List<string>();
+            foreach (string filename in filenames)
+            {
+                try
+                {
+                    Bitmap bitmapSanityCheck = new Bitmap(filename);
+                    validatedFilenames.Add(filename);
+                    bitmapSanityCheck.Dispose();
+                }
+                catch (Exception e)
+                {
+                    logger.AppendLine($"Warning, {filename}, {e.Message}, skipped");
+                }
+            }
+            validatedFilenames.Sort();
+            return validatedFilenames.ToArray();
         }
 
         private int GetBoarder(Directions direction)

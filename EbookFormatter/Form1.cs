@@ -4,7 +4,6 @@ namespace EbookFormatter
 {
     public partial class Form1 : Form
     {
-        StringBuilder logger;
         private EbookFormatEngine ebookFormatter;
 
         public Form1()
@@ -22,14 +21,9 @@ namespace EbookFormatter
 
         private void OnDragDrop(object sender, DragEventArgs e)
         {
-            logger = new StringBuilder();
-            textBoxLog.Text = logger.ToString();
-            ebookFormatter = new EbookFormatEngine();
-
             if (e.Data.GetData(DataFormats.FileDrop, false) == null)
             {
-                logger.AppendLine($"Warning: DnD does not contain any files");
-                textBoxLog.Text = logger.ToString();
+                textBoxLog.Text = $"Warning: DnD does not contain any files";
                 return;
             }
             else
@@ -37,33 +31,14 @@ namespace EbookFormatter
                 labelStatus.Text = $"Check file sanities...";
 
                 string[] arrayDndFilenames = (string[])e.Data.GetData(DataFormats.FileDrop, false);
-                string[] arrayInputImageFilenames = CheckFilenameSanity(arrayDndFilenames);
 
-                textBoxLog.Text = logger.ToString();
-                ebookFormatter.arrayInputImageFilenames = arrayInputImageFilenames;
+                ebookFormatter = new EbookFormatEngine(arrayDndFilenames);
                 ebookFormatter.GetBoarders();
+
+                textBoxLog.Text = ebookFormatter.logger.ToString();
+
                 backgroundWorkerEbookFormatter.RunWorkerAsync();
             }
-        }
-
-        private string[] CheckFilenameSanity(string[] filenames)
-        {
-            List<string> validatedFilenames = new List<string>();
-            foreach (string filename in filenames)
-            {
-                try
-                {
-                    Bitmap bitmapSanityCheck = new Bitmap(filename);
-                    validatedFilenames.Add(filename);
-                    bitmapSanityCheck.Dispose();
-                }
-                catch (Exception e)
-                {
-                    logger.AppendLine($"Warning, {filename}, {e.Message}, skipped");
-                }
-            }
-            validatedFilenames.Sort();
-            return validatedFilenames.ToArray();
         }
 
         private void OnBgWkrEbookFormatterDoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
@@ -79,8 +54,7 @@ namespace EbookFormatter
         private void OnBgWkrEbookFormatterRunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
             labelStatus.Text = $"Completed";
-            logger.AppendLine(ebookFormatter.logger.ToString());
-            textBoxLog.Text = logger.ToString();
+            textBoxLog.Text = ebookFormatter.logger.ToString();
         }
     }
 }
